@@ -38,3 +38,4 @@ I'm currently building my portfolio by developing projects in Java, Python, SQL,
 ## 📫 Contact
 
 - LinkedIn: www.linkedin.com/in/ellouze-eya-92938a339
+- Last updated August 2026.
