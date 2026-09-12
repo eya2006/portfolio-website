@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-cv:
     runs-on: ubuntu-latest
@@ -20,8 +23,10 @@ jobs:
           root_file: cv.tex
           latexmk_use_xelatex: true
 
-      - name: Upload CV PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: CV
-          path: cv.pdf
+      - name: Update CV PDF
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add cv.pdf
+          git diff --cached --quiet || git commit -m "Update CV PDF"
+          git push
